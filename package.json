@@ -1,0 +1,23 @@
+{
+  "name": "playwright_git_pipeline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SayanGanguli/Playwright_Git_Pipeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SayanGanguli/Playwright_Git_Pipeline/issues"
+  },
+  "homepage": "https://github.com/SayanGanguli/Playwright_Git_Pipeline#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.0",
+    "@types/node": "^26.1.1"
+  }
+}
