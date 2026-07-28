@@ -41,7 +41,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        headless: false,
+        headless: process.env.CI ? true : false,
         viewport: null,
         launchOptions: {
           args: ['--start-maximized'], // ensures browser starts maximized
@@ -54,7 +54,7 @@ export default defineConfig({
       name: 'firefox',
       use: {
         browserName: 'firefox',
-        headless: false,
+        headless: process.env.CI ? true : false,
         viewport: { width: 1520, height: 1050 },
         deviceScaleFactor: 1,
       },
