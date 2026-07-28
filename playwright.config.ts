@@ -27,34 +27,42 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'https://practicetestautomation.com/',
-    headless:false,
-    viewport:null,
-    launchOptions: {
-      args: ['--start-maximized'], // ensures browser starts maximized
-    },
-    //deviceScaleFactor:1,
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    screenshot:'on',
-    video:'on-first-retry'
+    screenshot: 'on',
+    video: 'on-first-retry'
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        headless: false,
+        viewport: null,
+        launchOptions: {
+          args: ['--start-maximized'], // ensures browser starts maximized
+        },
+        deviceScaleFactor: undefined,
+      },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        browserName: 'firefox',
+        headless: false,
+        viewport: { width: 1520, height: 1050 },
+        deviceScaleFactor: 1,
+      },
     },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
